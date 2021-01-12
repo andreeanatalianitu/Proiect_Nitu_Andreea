@@ -1,0 +1,56 @@
+﻿@page
+@model Proiect_Nitu_Andreea.Pages.Zboruri.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details about the flight</h1>
+
+<div>
+    <h4>Flight</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Zbor.Airline)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Zbor.Airline)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Zbor.From)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Zbor.From)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Zbor.To)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Zbor.To)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Zbor.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Zbor.Date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Zbor.Time)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Zbor.Time)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Zbor.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Zbor.Price)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Zbor.ID">Edit</a>
+    <br />
+    <a asp-page="./Index">Back to database</a>
+</div>

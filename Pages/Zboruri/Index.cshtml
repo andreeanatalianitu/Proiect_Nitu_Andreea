@@ -1,0 +1,80 @@
+﻿@page
+@model Proiect_Nitu_Andreea.Pages.Zboruri.IndexModel
+
+@{
+    ViewData["Title"] = "Flights";
+}
+
+<h1>Flights</h1>
+<p>Welcome! These are the flights available at the moment. 
+    You can search them by the airline or by the destination.</p>
+<p>
+    To add a new flight in the database click: <a asp-page="Create">Add New</a>
+</p>
+<form>
+    <p>
+        Airline:
+        <select asp-for="ZborAir" asp-items="Model.Airlines">
+            <option value="">All</option>
+        </select>
+        <br>
+        <br>
+        Destination: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Search" />
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Zbor[0].Airline)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Zbor[0].From)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Zbor[0].To)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Zbor[0].Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Zbor[0].Time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Zbor[0].Price)
+            </th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Zbor)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Airline)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.From)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.To)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Time)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
